@@ -19,6 +19,8 @@ $(document).ready(function () {
     }
   });
 
+  var storedPlans = JSON.stringify(localStorage.setItem("storedPlans"));
+
   var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
 
   if (storedPlans !== null) {
@@ -29,6 +31,8 @@ $(document).ready(function () {
 
   var inputBox = $("#inputBox");
   inputBox.empty();
+
+  inputBox.val(planTime[i]);
 
   //$("#btnSave").on("click", function () {
   // console.log("btn clicked");
