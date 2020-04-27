@@ -6,14 +6,32 @@ $(document).ready(function () {
   var plannerHeading = $("#currentDay");
   plannerHeading.text(dateNow);
 
-  for (var i = 9; i <= 17; i++) {
-    var rowDiv = $("<div>");
+  //this function is targeting the save button
+  $("#btnSave").on("click", function () {
+    //logging it to see if the button is being recognized when its clicked
 
-    rowDiv.class("row");
-    rowDiv.class("hour");
-    rowDiv.class("timeblock");
-    rowDiv.attr(i, "row", "hour", "timeblock");
+    console.log("btn clicked");
+    var storage = $("#btnSave").val();
+    if (localStorage.getItem("#inputBox", storage)) {
+      localStorage.setItem("#inputBox", storage);
+    }
+  });
 
-    console.log(rowDiv);
+  var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
+
+  if (storedPlans !== null) {
+    planTime = new Array(9);
+    planTime[0] = "Get up for work";
+    console.log(planTime);
   }
+
+  //$("#btnSave").on("click", function () {
+  // console.log("btn clicked");
+
+  // var inputBox = $("#inputBox");
+  // var btnSave = $("#btnSave");
+
+  //// if (btnSave == "click") {
+  // }
+  //});
 });
