@@ -11,9 +11,11 @@ $(document).ready(function () {
     //logging it to see if the button is being recognized when its clicked
 
     console.log("btn clicked");
+
     var storage = $("#btnSave").val();
     if (localStorage.getItem("#inputBox", storage)) {
       localStorage.setItem("#inputBox", storage);
+      storage.append(inputBox);
     }
   });
 
@@ -24,6 +26,9 @@ $(document).ready(function () {
     planTime[0] = "Get up for work";
     console.log(planTime);
   }
+
+  var inputBox = $("#inputBox");
+  inputBox.empty();
 
   //$("#btnSave").on("click", function () {
   // console.log("btn clicked");
