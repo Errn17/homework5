@@ -7,32 +7,35 @@ $(document).ready(function () {
   plannerHeading.text(dateNow);
 
   //this function is targeting the save button
-  $("#btnSave").on("click", function () {
+  $(".btnSave").on("click", function () {
     //logging it to see if the button is being recognized when its clicked
 
-    console.log("btn clicked");
+    var data = $(this).data("savenum");
+    var input = $("#" + data).val();
 
-    var storage = $("#btnSave").val();
-    if (localStorage.getItem("#inputBox", storage)) {
-      localStorage.setItem("#inputBox", storage);
-      storage.append(inputBox);
-    }
+    localStorage.setItem(data, input);
+
+    // var storage = $(".btnSave").val();
+    // if (localStorage.getItem("#inputBox", storage)) {
+    //   localStorage.setItem("#inputBox", storage);
+    //   storage.append(inputBox);
+    // }
   });
 
-  var storedPlans = JSON.stringify(localStorage.setItem("storedPlans"));
+  // var storedPlans = JSON.stringify(localStorage.setItem("storedPlans"));
 
-  var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
+  // var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
 
-  if (storedPlans !== null) {
-    planTime = new Array(9);
-    planTime[0] = "Get up for work";
-    console.log(planTime);
-  }
+  // if (storedPlans !== null) {
+  //   planTime = new Array(9);
+  //   planTime[0] = "Get up for work";
+  //   console.log(planTime);
+  // }
 
-  var inputBox = $("#inputBox");
-  inputBox.empty();
+  // var inputBox = $("#inputBox");
+  // inputBox.empty();
 
-  inputBox.val(planTime[i]);
+  // inputBox.val(planTime[i]);
 
   //$("#btnSave").on("click", function () {
   // console.log("btn clicked");
